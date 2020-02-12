@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="utf-8"/>
+
+    <title class="title">Новый продукт</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container_main">
+
+    <form th:action="@{'/add'}" method="POST">
+        <div class="product_form product">
+            <input id="title" name="title" type="text" placeholder="Наименование" required/>
+            <input id="description" name="description" type="text" placeholder="Описание" required/>
+            <input id="cost" type="text" name="cost" placeholder="Стоимость" required/>
+
+        </div>
+        <div class="form-group">
+            <button type="submit" class="button">btn_save</button>
+        </div>
+
+    </form>
+
+
+</div>
+</body>
+</html>

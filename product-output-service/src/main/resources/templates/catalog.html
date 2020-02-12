@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta Content="text/html" charset="utf-8"/>
+
+    <title class="title"></title>>
+</head>
+<body>
+
+
+<form>
+
+    <div class="form-group">
+        <table class="table table-hover table-review">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID product</th>
+                <th>title</th>
+                <th>description</th>
+                <th>cost</th>
+
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <!--/*@thymesVar id="productDTO" type="com.geekbrains.product.show.ProductDTO"*/-->
+
+            <tr th:each="p: ${products}">
+                <!--/*@thymesVar id="id" type="com.geekbrains.product.show.ProductDTO"*/-->
+                <th th:text="${p.id}"></th>
+                <th th:text="${p.title}"></th>
+                <th th:text="${p.description}"></th>
+                <th th:text="${p.cost}"></th>
+                <th>
+                    <a th:href="@{'/delete/' + ${p.id}}" methods="GET" class="button">Удалить</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+<form th:action="@{/product/new}" method="GET">
+    <div class="form-group">
+        <button type="submit" class="button">Добавить продукт</button>
+    </div>
+</form>
+
+
+</body>
+</html>
